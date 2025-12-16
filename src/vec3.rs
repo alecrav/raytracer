@@ -8,6 +8,7 @@ pub struct Vec3 {
 /// Used only for avoiding confusion
 type Point3 = Vec3;
 
+// overloading operators
 impl Vec3 {
     /// this functions adds two vectors
     pub fn add(&self, other: &Vec3) -> Vec3 {
