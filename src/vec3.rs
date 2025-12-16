@@ -4,6 +4,10 @@ pub struct Vec3 {
     pub z: f64,
 }
 
+/// Point3 type, for representing points in 3D space
+/// Used only for avoiding confusion
+type Point3 = Vec3;
+
 impl Vec3 {
     /// this functions adds two vectors
     pub fn add(&self, other: &Vec3) -> Vec3 {
