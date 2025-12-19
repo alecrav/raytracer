@@ -1,12 +1,13 @@
-use std::{num::TryFromIntError};
 use crate::vec3::Vec3;
 
+#[derive(Debug)]
 pub struct Camera {
     pub aspect_ratio: f64,
     pub image_width: f64,
     pub viewport_height: f64,
     pub focal_length: f64,
     pub camera_direction: Vec3,
+    pub camera_center: Vec3,
 }
 
 impl Camera {

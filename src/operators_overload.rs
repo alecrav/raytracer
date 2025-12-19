@@ -1,4 +1,5 @@
 use std::ops;
+use auto_ops::*;
 use crate::vec3::Vec3;
 
 /// in this implementation all operators are overloaded in
@@ -29,27 +30,16 @@ impl ops::Sub<Vec3> for Vec3 {
     }
 }
 
-/// in this raytracer, dot product is represented
-/// as vec1 * vec2
-impl ops::Mul<Vec3> for Vec3 {
-    type Output = f64;
-    
-    fn mul(self, other: Vec3) -> f64 {
-        self.x * other.x +
-        self.y * other.y +
-        self.z * other.z
-    }
-}
+impl_op_ex!(* |self: &Vec3, other &Vec3| -> f64 {
+    self.x * other.x +
+    self.y * other.y +
+    self.z * other.z
+});
 
-///in this raytracer, division by a scalar is represented by /
-impl ops::Div<f64> for Vec3 {
-    type Output = Vec3;
-    
-    fn div(self, scale: f64) -> Vec3 {
-        Vec3 {
-            x: self.x / scale,
-            y: self.y / scale,
-            z: self.z / scale,
-        }
+impl_op_ex!(/ |vec: &Vec3, scale: f64| -> Vec3 {
+    Vec3 {
+        x: vec.x / scale,
+        y: vec.y / scale,
+        z: vec.z / scale,
     }
-}
+});
