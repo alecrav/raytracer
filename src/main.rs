@@ -21,9 +21,27 @@ fn main() {
         camera_direction: Vec3{x: 0.0, y: 0.0, z: 1.0},
     };
 
-    let _image_height = camera.get_image_height();
-    let _viewport_width = camera.get_viewport_width();
+    let image_height = camera.get_image_height();
+    let viewport_width = camera.get_viewport_width();
+    
+    // define u v coordinates
+    let viewport_u = Vec3 {
+        x: viewport_width,
+        y: 0.0,
+        z: 0.0,
+    };
+    let viewport_v = Vec3 {
+        x:0.0,
+        y: -camera.viewport_height,
+        z:0.0,
+    };
+    
+    // calculate horizontal and vertical delta v from pixel to pixel
+    let pixel_delta_u = viewport_u / camera.image_width;
+    let pixel_delta_v = viewport_v / image_height;
 
-    println!("Creating PPM image");
-    ppm::create_ppm(400, 600);
+    // location of upper left pixel
+
+    
+    // render 
 }

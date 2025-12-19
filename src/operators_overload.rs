@@ -1,5 +1,5 @@
 use std::ops;
-use crate::vec3::{Vec3, Point3};
+use crate::vec3::Vec3;
 
 /// in this implementation all operators are overloaded in
 /// such a way that  Vec3 + Vec3 is a supported operation
@@ -38,5 +38,18 @@ impl ops::Mul<Vec3> for Vec3 {
         self.x * other.x +
         self.y * other.y +
         self.z * other.z
+    }
+}
+
+///in this raytracer, division by a scalar is represented by /
+impl ops::Div<f64> for Vec3 {
+    type Output = Vec3;
+    
+    fn div(self, scale: f64) -> Vec3 {
+        Vec3 {
+            x: self.x / scale,
+            y: self.y / scale,
+            z: self.z / scale,
+        }
     }
 }
