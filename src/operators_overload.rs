@@ -30,10 +30,10 @@ impl ops::Sub<Vec3> for Vec3 {
     }
 }
 
-impl_op_ex!(* |self: &Vec3, other: &Vec3| -> f64 {
-    self.x * other.x +
-    self.y * other.y +
-    self.z * other.z
+impl_op_ex!(* |our_self: &Vec3, other: &Vec3| -> f64 {
+    our_self.x * other.x +
+    our_self.y * other.y +
+    our_self.z * other.z
 });
 
 impl_op_ex!(/ |vec: &Vec3, scale: f64| -> Vec3 {
