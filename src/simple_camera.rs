@@ -12,22 +12,12 @@ pub struct Camera {
 impl Camera {
     /// Get height function from width and aspect ratio, 
     /// making sure an i32 is returned
-    pub fn get_image_height(&self) -> Result<i32, TryFromIntError> {
-        let result_64 = self.image_width / self.aspect_ratio;
-
-        match i32::try_from(result_64 as i64) {
-            Ok(v) => Ok(v),
-            Err(e) => Err(e),
-        }
+    pub fn get_image_height(&self) -> f64 {
+        self.image_width / self.aspect_ratio
     }
     
     /// Get viewport width from vp height, image width and aspect ratio
-    pub fn get_viewport_width(&self) -> Result<i32, TryFromIntError> {
-        let result_64 = self.viewport_height * (self.image_width / self.aspect_ratio);
-        
-        match i32::try_from(result_64 as i64) {
-            Ok(v) => Ok(v),
-            Err(e) => Err(e),
-        }
+    pub fn get_viewport_width(&self) -> f64 {
+        self.viewport_height * (self.image_width / self.aspect_ratio)
     }
 }
