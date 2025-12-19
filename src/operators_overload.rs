@@ -30,7 +30,7 @@ impl ops::Sub<Vec3> for Vec3 {
     }
 }
 
-impl_op_ex!(* |self: &Vec3, other &Vec3| -> f64 {
+impl_op_ex!(* |self: &Vec3, other: &Vec3| -> f64 {
     self.x * other.x +
     self.y * other.y +
     self.z * other.z
