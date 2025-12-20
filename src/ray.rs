@@ -9,7 +9,6 @@ pub struct Ray {
 impl Ray {
     /// return a Vec3 coordinates of ray at distance t
     fn p(self, t: f64) -> Vec3 {
-        Vec3::add(&self.origin,
-        &Vec3::scalar_mult(&self.direction, &t))
+        self.origin + (self.direction * t)
     }
 }
