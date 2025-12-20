@@ -1,15 +1,9 @@
+use ray_tracer::color::color_gradient;
 use ray_tracer::ray::Ray;
 use ray_tracer::simple_camera::Camera;
-use ray_tracer::vec3::{Point3, Vec3};
+use ray_tracer::vec3::Vec3;
 
 fn main() {
-    
-    // init camera 
-    let camera_dir = Ray{
-        origin: Vec3{x: 0.0, y: 0.0, z: 0.0},
-        direction: Vec3{x: 1.0, y: 1.0, z: 1.0},
-    };
-    
     let camera = Camera {
         aspect_ratio: 16.0 / 9.0,
         image_width: 400.0,
@@ -18,7 +12,6 @@ fn main() {
         camera_direction: Vec3{x: 0.0, y: 0.0, z: 1.0},
         camera_center: Vec3 { x: 0.0, y: 0.0, z: 0.0 },
     };
-
 
     let image_height = camera.get_image_height();
     let viewport_width = camera.get_viewport_width();
@@ -63,7 +56,7 @@ fn main() {
                 direction: ray_direction,
             };
             
-            
+            println!("{:?}", color_gradient(&r));
         }
     }
 }
