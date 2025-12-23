@@ -1,4 +1,4 @@
-use crate::{ray::{self, Ray}, vec3::Vec3};
+use crate::{ray::Ray, vec3::Vec3};
 
 pub type Pixel = Vec3;
 

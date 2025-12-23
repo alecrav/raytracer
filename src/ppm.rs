@@ -16,9 +16,9 @@ pub fn create_ppm(width: i32, height: i32) {
     };
 
     println!("This image has a resolution of {} x {} pixels", &width, &height);
-    let mut r = 0.0;
-    let mut g = 0.0;
-    let mut b = 0.0;
+    let mut r;
+    let mut g;
+    let mut b;
 
     writeln!(f, "P3").unwrap();
     writeln!(f, "{} {}", width, height).unwrap();
@@ -29,8 +29,6 @@ pub fn create_ppm(width: i32, height: i32) {
             g = j as f64 / (height as f64 - 1.0) * 255.99;
             b = 0.0;
 
-
-            
             if let Err(e) = writeln!(f, "{} {} {}", r, g, b) {
                 eprintln!("couldn't write to file: {}", e)
             };
